@@ -28,11 +28,13 @@ tags:
 我们可以通过交叉验证方法选取适当的lambda。
 ![enter image description here](http://7xt1xs.com1.z0.glb.clouddn.com/ml/linear_reg/5.png)
 
-### LASSO （TODO）
+### LASSO 
 使用L1范式的正规化项。
-待解决问题：
-- 如何求解？
-- 与Ridge Regression的区别？
+与Ridge Regression 比较
+1. Ridge Regression 纯粹是为了“惩罚”系数，将系数降低，并且Ridge有一个好处是，计算公式简单，容易计算得到一个稳定解
+2. LASSO 不只是降低系数，而且会将系数降低到0，使得最后模型变为Sparse，这样带来的好处是，使得计算效率的提升。此外，如果要进行特征选择，推荐使用LASSO，因为只需要选择系数不为0的项就可以。LASSO的缺点是，不再是一个凸优化问题，可能无法找到全局最优点，不稳定。
+ ![enter image description here](http://7xt1xs.com1.z0.glb.clouddn.com/ml/linear_reg/6.png)
+
 
 ### 总结
 当使用岭回归或者LASSO模型的时候，除了我们可以有效控制模型的复杂度之外；我们可以通过这些方法进行**特征缩减**，删去没什么特别大作用的参数，从而加快模型训练。
